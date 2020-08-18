@@ -20,7 +20,7 @@ public class BusinessUtils {
     }
 
     public static void validateMaxDronBlockDistance(int coordinateX, int coordinateY) throws DeliveryException {
-        if(coordinateX >= DeliveryConstants.MAX_DRON_BLOCK_DISTANCE || coordinateY >= DeliveryConstants.MAX_DRON_BLOCK_DISTANCE){
+        if(coordinateX >= DeliveryConstants.MAX_DRON_BLOCK_DISTANCE || coordinateX <= -DeliveryConstants.MAX_DRON_BLOCK_DISTANCE || coordinateY >= DeliveryConstants.MAX_DRON_BLOCK_DISTANCE || coordinateY <= -DeliveryConstants.MAX_DRON_BLOCK_DISTANCE){
             String message = String.format("El dron solo puede desplazarse %s cuadras a la redonda ubicación actual (%s, %s)", DeliveryConstants.MAX_DRON_BLOCK_DISTANCE, coordinateX, coordinateY);
             throw new DeliveryException(message);
         }
